@@ -25,7 +25,7 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 ## Files/folders description
 | File/folder | Description |
 | --- | --- |
-| Simulation #1-8 | Contain .dat and .txt files for the spike times of each MU. the .dat files are used to generate the force vectors |
+| Simulation #1-8 | Contain .dat and .txt files for the spike times of each MU. The .dat files are used to generate the force vectors |
 | Simulations data of panels C & D.xlsx | Excel files contains the summary data of all simulations presented in figures 3-8 panels C & D |
 | forceGen.py | Contains the force generation functions |
 
