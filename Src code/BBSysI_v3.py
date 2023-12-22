@@ -3,14 +3,6 @@
 ## Mohamed.mousa@wright.edu
 
 
-#Comment line 259 to change b/w ramp to hold and triangle ramp!
-## wave form manual:::
-# for staircase or ramp , put start time equal to the interval.
-# the first step is not zero , so if you want to account for zero step , you have to put the STARTTIME = INTERVAL
-
-#For staircase , set HOWMANY_UP = HOWMANY_DOWN , make the STARTTIME = INTERVAL ( SAME FOR RAMP)
-
-
 Dec 2021
 # Trpazoidal wave form is now enabled, use the 'hold_Time' variable in BBGlobals.py to set the hold time.
 # """
@@ -28,44 +20,6 @@ STEPNUMBER 	= 0	 #Parameters for adjusting synaptic NetCon weights during runtim
 LASTTIME 	= STARTTIME + INTERVAL*(HOWMANY_UP-1) + INTERVAL*(HOWMANY_DOWN) + hold_Time
 
 # print("Syn sys V3 loaded")
-
-
-
-def fixed_SlopeAdpation( GSyn_High, cell_Gsyn):
-	"""This functions update the steps, and hold time for each cell to bring them all to fixed slope.
-		Args:
-			GSyn_High: the highest conductance value for a cell in the pool.
-			cell_Gsyn: the conductance value for the current cell.
-			
-			Note: this function is optional to be called but it requires that each cell to have specific custom synaptic conductance.
-			tested to work correctly in parallel mode. but not sure the accuracy for serial mode.
-	"""
-	
-
-	global PERCENT_CHANGE_DN, PERCENT_CHANGE_UP, hold_Time, HOWMANY_UP, HOWMANY_DOWN, INTERVAL
-
-	slope = GSyn_High/HOWMANY_UP
-
-	steps = int(cell_Gsyn/slope)
-	PERCENT_CHANGE_UP = 1.0/steps
-	PERCENT_CHANGE_DN = 1.0/steps
-
-	hold_Time = hold_Time + (HOWMANY_UP - steps)*INTERVAL + (HOWMANY_DOWN - steps)*INTERVAL
-
-	HOWMANY_UP 	= steps
-	HOWMANY_DOWN 	= steps
-
-	# ## for debugging purposes :-------
-	# print("Steps up/down = %d / %d" % (HOWMANY_UP, HOWMANY_DOWN))
-	# print("PERCENT_CHANGE_UP = %f" % PERCENT_CHANGE_UP)
-	# print("PERCENT_CHANGE_DN = %f" % PERCENT_CHANGE_DN)
-	# print("hold_Time = %.2f" % hold_Time)
-	# print("rise time = %.2f" % (INTERVAL*HOWMANY_UP))
-	# print("fall time = %.2f" % (INTERVAL*HOWMANY_DOWN))
-	# print("Total time = %.2f" % (INTERVAL*HOWMANY_UP + INTERVAL*HOWMANY_DOWN + hold_Time))
-
-
-#####-----------------End of Function-----------------------------------------------
 
 
 
