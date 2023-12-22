@@ -26,17 +26,53 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 | File/folder | Description |
 | --- | --- |
 | Simulation #1-8 | Contain .dat and .txt files for the spike times of each MU. The .dat files are used to generate the force vectors |
+| Src code | folder contains the source code for the model |
 | Simulations data of panels C & D.xlsx | Excel files contains the summary data of all simulations presented in figures 3-8 panels C & D |
-| forceGen.py | Contains the force generation functions |
+| `forceGen.py` | Contains the force generation functions |
+
+<br>
+
+### Simulations source code files:
+| File | Function |
+| --- | --- |
+| `AutoStart.py` | main file to run the simulation |
+| `BBGlobals.py` | contains the global variables |
+| `BBSysI_v3.py` | contains synaptic input functions to create and set the synaptic pulses |
+| `BBModifyCell.hoc` | contain functions for setting the biophysical properties |
+| other .hoc files | files are for the cell templates (classes) |
+| .mod | files are for the active channels, and dendritic mechanisms|
 
 
-
-## How to generate the force of each motor unit:
+## How to run the simulation:
 ### From the command line:
 1. Run the simulation using the following command:
           
-      ```python -i forceGen.py```
-2. force file for each motor unit will be generated in the same f
+     ```shell
+     python -i AutoStart.py
+     ```
+
+<br>
+
+### To run on the [Neuroscience Gateway](https://www.nsgportal.org/):
+**Note:** files are written to be compatible with parallel context.
+1. Upload the files to the gateway (mod files must be in the parent folder)
+2. Create a new task, select "NEURON with Python 3" as the tool.
+3. Set the parameters as follow:
+     - Run time : 10 Hours (estimate for Stampede2KNL)
+     - Main file: AutoStart.py
+     - Nodes & cores: 3 and 60 (for a 177 cell on Stampede2KNL)
+
+<br>
+
+### Force generations from spikes:
+After the execution of the simulation, .txt, and  .dat files containing the spikes time of each motor unit will be generated. To generate the respective force of each motor unit:
+1. Open the `forceGen.py`, and double check the number of the cells for each type. Variable (Tot_numcells) 
+2. Open the terminal then run the `forceGen.py` script using the following command:
+          
+      ```shell
+      python -i forceGen.py
+      ```
+3. force file for each motor unit will be generated in the same folder
 <br>
 
 
@@ -53,7 +89,7 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 
 <span style="display: block; margin-left: auto; margin-right: auto; width: 70%;">![Summary of the model properties in parallel coordinates](imgs/Model-properties-Rin-PC.png "Summary Scatter matrix")</span> 
 
-<span style="font-size: 16px; display: block; margin-left: auto; margin-right: auto; width: 80%;">parallel coordinates visual for the model input resistance, Rheobase, AHP depth, and AHP half-decay.</span> 
+<span style="font-size: 16px; display: block; margin-left: auto; margin-right: auto; width: 80%;">Parallel coordinates visual for the model input resistance, Rheobase, AHP depth, and AHP half-decay.</span> 
 
 
 <!-- ## Published article
