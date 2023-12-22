@@ -1,5 +1,5 @@
 # Morphologically detailed motoneuron-pool
-Morphologically detailed motoneuron pool for the vastus lateralis muscle. the model is composed on three cell types: fast fatigable (FF), slow (S), and fast fatigue resistant (FR). The model is based on the [Hodgkin-Huxley model](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) with some modifications to the active channels and dendritic mechanisms.
+Morphologically detailed motoneuron pool for the vastus lateralis muscle. the model is composed of three cell types: fast fatigable (FF), slow (S), and fast fatigue resistant (FR). The model is based on the [Hodgkin-Huxley model](https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model) with some modifications to the active channels and dendritic mechanisms.
 
 The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/article/10.1088/1741-2552/aa9db5)
 
