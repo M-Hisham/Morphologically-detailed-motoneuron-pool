@@ -19,13 +19,7 @@ from BBSysI_v3  import *
 h.nrnmpi_init()
 
 # templates that define cell classes..............................
-h.load_file("FRcellTemplate.hoc") 		# FR cell template
-h.load_file("STemp2.hoc")				# S cell template
-h.load_file("FFTemp.hoc")				# FF cell template
-# h.load_file("BBAxon.hoc")				# Axon Module
-
-# insert Hoc functions to modify the cell template:
-h.load_file("BBModifyCell.hoc")
+import cellBuilder
 
 # create ParallelContext instance here so it exists whenever we need it
 pc = h.ParallelContext()
@@ -118,7 +112,7 @@ def SingleRun(Cell_type, Cell_num, layer):
 
 
 	## the following line for synaptic input update
-	tempfih2 = h.FInitializeHandler((fi_update,(tempcell)))
+	# tempfih2 = h.FInitializeHandler((fi_update,(tempcell)))
 
 
 	# #This block records spike times to a vector for use.
@@ -136,10 +130,10 @@ def SingleRun(Cell_type, Cell_num, layer):
 	# tempic.AMPmax = 20
 	# tempic.AMPend = 20
 
-	# tempic2 = h.IClamp(tempcell.soma(0.5)) # Used an IClamp as an easy example of what we can do with this.
-	# tempic2.delay 	= 100
-	# tempic2.dur 	= 100
-	# tempic2.amp 	= 20
+	tempic2 = h.IClamp(tempcell.soma(0.5)) # Used an IClamp as an easy example of what we can do with this.
+	tempic2.delay 	= 100
+	tempic2.dur 	= 100
+	tempic2.amp 	= 20
 
 
 	h.run()
@@ -168,14 +162,14 @@ def run_pool():
 		pc.submit(SingleRun, 1, run_id,"base") 
 		pc.submit(SingleRun, 1, run_id, "low") 
 		pc.submit(SingleRun, 1, run_id, "high") 
-	for run_id in range(R_numcells):
-		pc.submit(SingleRun, 2, run_id,"base") 
-		pc.submit(SingleRun, 2, run_id, "low") 
-		pc.submit(SingleRun, 2, run_id, "high") 
-	for run_id in range(F_numcells):
-		pc.submit(SingleRun, 3, run_id,"base") 
-		pc.submit(SingleRun, 3, run_id, "low") 
-		pc.submit(SingleRun, 3, run_id, "high") 
+	# for run_id in range(R_numcells):
+	# 	pc.submit(SingleRun, 2, run_id,"base") 
+	# 	pc.submit(SingleRun, 2, run_id, "low") 
+	# 	pc.submit(SingleRun, 2, run_id, "high") 
+	# for run_id in range(F_numcells):
+	# 	pc.submit(SingleRun, 3, run_id,"base") 
+	# 	pc.submit(SingleRun, 3, run_id, "low") 
+	# 	pc.submit(SingleRun, 3, run_id, "high") 
 
 	while pc.working():
 		job_id,Cell_type,cell_num , returnvec 	= pc.pyret()

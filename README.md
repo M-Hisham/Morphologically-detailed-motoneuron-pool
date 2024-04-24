@@ -18,9 +18,9 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 
 
 ## Requirments:
-1. Requires Python3 (Anaconda package is recommended)
+1. Requires Python3.8 (Anaconda package is recommended)
 2. Install the [NEURON simulator](https://neuron.yale.edu/neuron/what_is_neuron)
-3. Install the packages: numpy, mpi4py
+3. Install the packages: numpy, mpi4py, matplotlib, pickle
 
 ## Files/folders description
 | File/folder | Description |
@@ -36,10 +36,10 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 | File | Function |
 | --- | --- |
 | `AutoStart.py` | main file to run the simulation |
-| `BBGlobals.py` | contains the global variables |
-| `BBSysI_v3.py` | contains synaptic input functions to create and set the synaptic pulses |
-| `BBModifyCell.hoc` | contain functions for setting the biophysical properties |
-| other .hoc files | files are for the cell templates (classes) |
+| `BBGlobals.pyc` | contains the global variables |
+| `BBSysI_v3.pyc` | contains synaptic input functions to create and set the synaptic pulses |
+| `cellBuilder.pyc` | contain functions for setting up the motoneurons cell templates |
+| other .pkl files | files contain information for the cell templates (classes) |
 | .mod | files are for the active channels, and dendritic mechanisms|
 
 
@@ -56,11 +56,11 @@ The model is based on [Allen & Elbasiouny (2018)](https://iopscience.iop.org/art
 ### To run on the [Neuroscience Gateway](https://www.nsgportal.org/):
 **Note:** files are written to be compatible with parallel context.
 1. Upload the files to the gateway (mod files must be in the parent folder)
-2. Create a new task, select "NEURON with Python 3" as the tool.
+2. Create a new task, select "NEURON on Expanse" as the tool.
 3. Set the parameters as follow:
-     - Run time : 10 Hours (estimate for Stampede2KNL)
+     - Run time : 10 Hours (estimate for Expanse)
      - Main file: AutoStart.py
-     - Nodes & cores: 3 and 60 (for a 177 cell on Stampede2KNL)
+     - Nodes & cores: 3 and 60 (for a 177 cell on Expanse)
 
 <br>
 
