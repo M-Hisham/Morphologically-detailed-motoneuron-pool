@@ -84,7 +84,7 @@ After the execution of the simulation, .txt, and  .dat files containing the spik
 ## Biophysical properties of the model:
 <span style="display: block; margin-left: auto; margin-right: auto; width: 70%;">![Scatter matrix for the model input resistance, Rheobase, AHP depth, and AHP half-decay](imgs/Model-properties-scatter-matrix-Rin.png "Summary Scatter matrix")</span>  
 
-<span style="font-size: 16px; display: block; margin-left: auto; margin-right: auto; width: 80%;">Scatter matrix for the model input resistance, Rheobase, AHP depth, and AHP half-decay.</span>  
+<span style="font-size: 16px; display: block; margin-left: auto; margin-right: auto; width: 80%;">Supplementary Figure S1: A graphical summary of the VL motoneuron pool cell properties. The properties input resistance, rheobase, AHP depth and AHP half decay are presented in 2D scatter plot matrix, with the diagonal panels showing one dimensional box plot for each property on the vertical axis.</span>  
 
 
 <span style="display: block; margin-left: auto; margin-right: auto; width: 70%;">![Summary of the model properties in parallel coordinates](imgs/Model-properties-Rin-PC.png "Summary Scatter matrix")</span> 
