@@ -94,5 +94,6 @@ After the execution of the simulation, .txt, and  .dat files containing the spik
 
 <!-- ## Published article
 * [JNP Article](https://journals.physiology.org/doi/full/10.1152/jn.00543.2020)
+-->
 
-[![DOI](https://zenodo.org/badge/293670752.svg)](https://zenodo.org/badge/latestdoi/293670752) -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11478788.svg)](https://doi.org/10.5281/zenodo.11478788)
