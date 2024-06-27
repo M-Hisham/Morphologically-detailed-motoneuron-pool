@@ -92,8 +92,7 @@ After the execution of the simulation, .txt, and  .dat files containing the spik
 <span style="font-size: 16px; display: block; margin-left: auto; margin-right: auto; width: 80%;">Parallel coordinates visual for the model input resistance, Rheobase, AHP depth, and AHP half-decay.</span> 
 
 
-<!-- ## Published article
-* [JNP Article](https://journals.physiology.org/doi/full/10.1152/jn.00543.2020)
--->
+## Published article
+**[JNP Article :Onion Skin Is Not a Universal Firing Pattern for Spinal Motoneurons: Simulation Study ](https://journals.physiology.org/doi/abs/10.1152/jn.00479.2023)**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11478788.svg)](https://doi.org/10.5281/zenodo.11478788)
